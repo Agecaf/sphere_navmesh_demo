@@ -12,3 +12,10 @@ You can find an [online demo here](https://agecaf.itch.io/spherical-navigation-m
 4. We then use the navigation mesh to find paths using an A* algorithm,
 5. which we then simplify, this step still has potential further simplification.
 
+# Where can I find the cool bits of code?
+
+- [Triangulation Utils](https://github.com/Agecaf/sphere_navmesh_demo/blob/master/scripts/utils/triangulation_utils.gd) has most of the triangulation logic.
+- [NavMeshSphere](https://github.com/Agecaf/sphere_navmesh_demo/blob/master/game/navmesh/navmesh_sphere.gd) has our navigation mesh.
+- [ParallelThread](https://github.com/Agecaf/sphere_navmesh_demo/blob/master/game/demo/parallel_thread.gd) is where our navigation mesh is built.
+- [Pathfinder](https://github.com/Agecaf/sphere_navmesh_demo/blob/master/game/pathfinder/pathfinder.gd) is responsible for finding paths.
+
