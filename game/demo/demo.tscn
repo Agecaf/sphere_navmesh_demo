@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://rev8hldaelss"]
+
+[ext_resource type="PackedScene" uid="uid://u6b462oda1k2" path="res://game/world/world.tscn" id="1_p455k"]
+[ext_resource type="Script" uid="uid://xthrtno71g8y" path="res://game/demo/demo.gd" id="1_xoow8"]
+[ext_resource type="Script" uid="uid://chxhvh215j8ga" path="res://game/demo/parallel_thread.gd" id="3_nj4mb"]
+[ext_resource type="Script" uid="uid://m3kkj6e708sg" path="res://game/view/view_vectors.gd" id="4_ynhiy"]
+[ext_resource type="Script" uid="uid://bb6phdrso8ql2" path="res://game/view/view_segments.gd" id="5_83yqe"]
+[ext_resource type="PackedScene" uid="uid://bhasjxqkluate" path="res://game/player/dot.tscn" id="6_83yqe"]
+[ext_resource type="Script" uid="uid://df0l5laf1qxmk" path="res://game/pathfinder/pathfinder.gd" id="7_gs6r2"]
+
+[node name="Demo" type="Node3D" unique_id=326517325]
+script = ExtResource("1_xoow8")
+
+[node name="World" parent="." unique_id=73632953 instance=ExtResource("1_p455k")]
+
+[node name="ParallelThread" type="Node" parent="." unique_id=1217502017]
+script = ExtResource("3_nj4mb")
+
+[node name="ObstacleVectors" type="Node3D" parent="." unique_id=1677729840]
+script = ExtResource("4_ynhiy")
+point_color = Color(0, 0, 0, 1)
+metadata/_custom_type_script = "uid://m3kkj6e708sg"
+
+[node name="ObstacleSegments" type="Node3D" parent="." unique_id=1354342573]
+transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 0, 0, 0)
+script = ExtResource("5_83yqe")
+line_color = Color(0, 0, 0, 1)
+metadata/_custom_type_script = "uid://bb6phdrso8ql2"
+
+[node name="StartPosition" parent="." unique_id=168206514 instance=ExtResource("6_83yqe")]
+color = Color(0.58140785, 0.118494235, 0, 1)
+
+[node name="EndPosition" parent="." unique_id=2140020485 instance=ExtResource("6_83yqe")]
+color = Color(1.92523e-07, 0.38479424, 0.54754627, 1)
+
+[node name="CurrentPosition" parent="." unique_id=1666866655 instance=ExtResource("6_83yqe")]
+color = Color(0, 0.43526307, 0.032448884, 1)
+
+[node name="Pathfinder" type="Node" parent="." unique_id=1809065804]
+script = ExtResource("7_gs6r2")
+
+[node name="PathSegments" type="Node3D" parent="." unique_id=1628905236]
+transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 0, 0, 0)
+script = ExtResource("5_83yqe")
+metadata/_custom_type_script = "uid://bb6phdrso8ql2"
+
+[node name="DebugSegments" type="Node3D" parent="." unique_id=1938707334]
+transform = Transform3D(1.05, 0, 0, 0, 1.05, 0, 0, 0, 1.05, 0, 0, 0)
+script = ExtResource("5_83yqe")
+line_color = Color(0.34975767, 0.39801323, 1, 1)
+metadata/_custom_type_script = "uid://bb6phdrso8ql2"
+
+[node name="GridSegments" type="Node3D" parent="." unique_id=820041796]
+script = ExtResource("5_83yqe")
+line_color = Color(0.75756806, 0.674646, 0.549035, 1)
+metadata/_custom_type_script = "uid://bb6phdrso8ql2"
+
+[node name="Menu" type="Control" parent="." unique_id=1122044635]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Menu" unique_id=389207179]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -155.0
+offset_right = 420.0
+grow_vertical = 0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Menu/MarginContainer" unique_id=960013837]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+text = "[ R ] Generate new map 
+[ WASD ] Move camera
+[ Mouse click ] Set start and end position
+Once the start and end position are set,
+we'll try to find a path.
+"
+fit_content = true

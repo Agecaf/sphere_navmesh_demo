@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://u6b462oda1k2"]
+
+[ext_resource type="Script" uid="uid://bll11066maa8k" path="res://game/camera/camera_rotation.gd" id="1_aqibe"]
+[ext_resource type="Script" uid="uid://c1cenn5o4jm3o" path="res://game/world/world.gd" id="1_ufdhy"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_kafe6"]
+
+[sub_resource type="Gradient" id="Gradient_nxxas"]
+offsets = PackedFloat32Array(0.121875, 0.815625)
+colors = PackedColorArray(0.7708395, 0.77083945, 0.77083945, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_xov76"]
+frequency = 0.0187
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_5pj6p"]
+noise = SubResource("FastNoiseLite_xov76")
+color_ramp = SubResource("Gradient_nxxas")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2nw5p"]
+albedo_color = Color(0.80979335, 0.65525967, 0.5627894, 1)
+albedo_texture = SubResource("NoiseTexture2D_5pj6p")
+
+[sub_resource type="SphereMesh" id="SphereMesh_2nw5p"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5pj6p"]
+albedo_color = Color(0.8673469, 6.1222316e-05, 0.66838366, 1)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_aqibe"]
+
+[sub_resource type="Sky" id="Sky_6l7jx"]
+sky_material = SubResource("ProceduralSkyMaterial_aqibe")
+
+[sub_resource type="Environment" id="Environment_kafe6"]
+background_mode = 2
+sky = SubResource("Sky_6l7jx")
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_2nw5p"]
+
+[sub_resource type="Compositor" id="Compositor_5pj6p"]
+
+[node name="World" type="Node3D" unique_id=73632953]
+script = ExtResource("1_ufdhy")
+
+[node name="Ground" type="MeshInstance3D" parent="." unique_id=1275026862]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+mesh = SubResource("SphereMesh_kafe6")
+surface_material_override/0 = SubResource("StandardMaterial3D_2nw5p")
+
+[node name="CameraRotation" type="Node3D" parent="." unique_id=466037189]
+script = ExtResource("1_aqibe")
+
+[node name="Camera3D" type="Camera3D" parent="CameraRotation" unique_id=1894288238]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.9259928, 0, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="CameraRotation" unique_id=508908240]
+transform = Transform3D(0.84793955, 0.17511451, 0.50033337, -0.3279662, -0.5682197, 0.75469506, 0.41645736, -0.8040281, -0.42438436, 0, 0, 0)
+
+[node name="Pointer" type="MeshInstance3D" parent="CameraRotation" unique_id=175804125]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
+mesh = SubResource("SphereMesh_2nw5p")
+surface_material_override/0 = SubResource("StandardMaterial3D_5pj6p")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=213062137]
+environment = SubResource("Environment_kafe6")
+camera_attributes = SubResource("CameraAttributesPractical_2nw5p")
+compositor = SubResource("Compositor_5pj6p")

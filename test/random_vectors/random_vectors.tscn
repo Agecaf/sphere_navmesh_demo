@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bd46fsxmsf0y8"]
+
+[ext_resource type="Script" uid="uid://hrh0igq7kff5" path="res://test/random_vectors/random_vectors.gd" id="1_61ur4"]
+[ext_resource type="PackedScene" uid="uid://u6b462oda1k2" path="res://game/world/world.tscn" id="1_j71xc"]
+[ext_resource type="Script" uid="uid://m3kkj6e708sg" path="res://game/view/view_vectors.gd" id="3_37anq"]
+
+[node name="RandomVectors" type="Node3D" unique_id=1308671056]
+script = ExtResource("1_61ur4")
+
+[node name="World" parent="." unique_id=73632953 instance=ExtResource("1_j71xc")]
+
+[node name="ViewVectors" type="Node3D" parent="." unique_id=1968154323]
+script = ExtResource("3_37anq")
+metadata/_custom_type_script = "uid://m3kkj6e708sg"

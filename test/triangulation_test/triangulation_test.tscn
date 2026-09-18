@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://7ejmfhhgvwc3"]
+
+[ext_resource type="PackedScene" uid="uid://u6b462oda1k2" path="res://game/world/world.tscn" id="1_0gfaq"]
+[ext_resource type="Script" uid="uid://ccpskb2lclc66" path="res://test/triangulation_test/triangulation_test.gd" id="1_d42mr"]
+[ext_resource type="Script" uid="uid://m3kkj6e708sg" path="res://game/view/view_vectors.gd" id="3_jv0pc"]
+[ext_resource type="Script" uid="uid://bb6phdrso8ql2" path="res://game/view/view_segments.gd" id="4_rv0k4"]
+
+[node name="TriangulationTest" type="Node3D" unique_id=97520886]
+script = ExtResource("1_d42mr")
+
+[node name="World" parent="." unique_id=73632953 instance=ExtResource("1_0gfaq")]
+
+[node name="ViewVectors" type="Node3D" parent="." unique_id=219764100]
+script = ExtResource("3_jv0pc")
+point_color = Color(0.40461022, 0.60534966, 1, 1)
+metadata/_custom_type_script = "uid://m3kkj6e708sg"
+
+[node name="ViewVectors2" type="Node3D" parent="." unique_id=854175210]
+script = ExtResource("3_jv0pc")
+point_color = Color(0, 0, 0, 1)
+metadata/_custom_type_script = "uid://m3kkj6e708sg"
+
+[node name="ViewSegments" type="Node3D" parent="." unique_id=939356469]
+transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 0, 0, 0)
+script = ExtResource("4_rv0k4")
+line_color = Color(0.23951703, 0.00014150441, 0.7727322, 1)
+metadata/_custom_type_script = "uid://bb6phdrso8ql2"
+
+[node name="ViewSegments2" type="Node3D" parent="." unique_id=1091761296]
+transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 0, 0, 0)
+script = ExtResource("4_rv0k4")
+line_color = Color(0, 0, 0, 1)
+metadata/_custom_type_script = "uid://bb6phdrso8ql2"
+
+[node name="ViewSegments3" type="Node3D" parent="." unique_id=1293128827]
+script = ExtResource("4_rv0k4")
+line_color = Color(1, 0.7777725, 0.5596298, 1)
+metadata/_custom_type_script = "uid://bb6phdrso8ql2"

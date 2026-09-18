@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cq638btc4mn0u"]
+
+[ext_resource type="Script" uid="uid://vwjigqh78nje" path="res://test/random_segments/random_segments.gd" id="1_42daq"]
+[ext_resource type="PackedScene" uid="uid://u6b462oda1k2" path="res://game/world/world.tscn" id="1_gfa7u"]
+[ext_resource type="Script" uid="uid://m3kkj6e708sg" path="res://game/view/view_vectors.gd" id="2_42daq"]
+[ext_resource type="Script" uid="uid://bb6phdrso8ql2" path="res://game/view/view_segments.gd" id="4_80ltf"]
+
+[node name="RandomSegments" type="Node3D" unique_id=933106900]
+script = ExtResource("1_42daq")
+
+[node name="World" parent="." unique_id=73632953 instance=ExtResource("1_gfa7u")]
+
+[node name="ViewVectors" type="Node3D" parent="." unique_id=778324685]
+script = ExtResource("2_42daq")
+metadata/_custom_type_script = "uid://m3kkj6e708sg"
+
+[node name="ViewSegments" type="Node3D" parent="." unique_id=1545352103]
+script = ExtResource("4_80ltf")
+metadata/_custom_type_script = "uid://bb6phdrso8ql2"

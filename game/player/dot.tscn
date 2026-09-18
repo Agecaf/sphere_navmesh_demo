@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bhasjxqkluate"]
+
+[ext_resource type="Script" uid="uid://jnf8ap6l54bv" path="res://game/player/dot.gd" id="1_570so"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_kafe6"]
+
+[node name="Dot" type="Node3D" unique_id=168206514]
+script = ExtResource("1_570so")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1713833979]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
+mesh = SubResource("SphereMesh_kafe6")
