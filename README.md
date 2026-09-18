@@ -1,7 +1,5 @@
 # Sphere Navmesh Demo
 
-You can find the source code in the "master" branch.
-
 You can find an [online demo here](https://agecaf.itch.io/spherical-navigation-mesh), the page's password is `sphere`.
 
 # How does it work?
